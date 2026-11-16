@@ -8,7 +8,7 @@ import { Footer } from './Footer.js';
 type LayoutProps = {
   title: string;
   current: NavKey;
-  children?: Child;
+  children: Child;
 };
 
 export const Layout = ({ title, current, children }: LayoutProps) => (

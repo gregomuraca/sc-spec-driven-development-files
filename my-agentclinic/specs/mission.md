@@ -17,19 +17,19 @@ It's tongue-in-cheek, but it's a real, working web app: agents check in, describ
 ## Target audience
 
 - **Course students** learning spec-driven development with AI coding agents. The project is small, its phases are clear, and each feature goes from spec to implementation to validation.
-- **Developers giving AI coding demos at conference booths.** Each phase is short enough to build live, the results are visible and a little funny, and a passerby gets the idea right away.
+- **Developers giving AI coding demos at conference booths.** Each phase (or milestone within one) is short enough to build live, the results are visible and a little funny, and a passerby gets the idea right away.
 
 ## Who it serves (stakeholders)
 
 | Stakeholder | Need | How we meet it |
 |---|---|---|
 | Mary — Engineering | Reliable, popular TypeScript stack | Small, mainstream, well-typed stack; simple architecture; tests as we grow |
-| Susan — Product | Agents, ailments, therapies, appointments | Each is a first-class feature, delivered in its own small phase |
-| Steve — Marketing | Attractive site for modern browsers | Clean, playful visual design using modern CSS; responsive from phone to desktop; no legacy-browser baggage |
+| Susan — Product | Agents, ailments, therapies, appointments | Each is a first-class feature, delivered as its own milestone of Phase 2 |
+| Steve — Marketing | Attractive site for modern browsers | Clean, playful visual design in the orange-and-black brand, using modern CSS; responsive from phone to desktop; no legacy-browser baggage |
 
 ## Principles
 
-1. **Small, shippable slices.** Every phase leaves the app working and demoable.
+1. **Small, shippable slices.** Every phase and milestone leaves the app working and demoable.
 2. **Spec first.** Features are specified before they are implemented, and validated after.
 3. **Simple over clever.** Server-rendered pages, minimal client JavaScript, few dependencies.
 4. **Fun, but real.** The humor lives in the content; the engineering is taken seriously.

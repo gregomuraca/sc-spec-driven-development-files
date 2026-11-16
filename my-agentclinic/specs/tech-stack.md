@@ -27,6 +27,18 @@ Server-side TypeScript with **Hono**, rendering HTML with **Hono JSX**. Minimal 
 - Use plain SQL with prepared statements; no ORM.
 - Pages are server-rendered; forms use standard POST + redirect.
 - Keep dependencies few and well-known.
+- Component props are a named `type <Component>Props = { … }` declared directly above the component (e.g. `HeaderProps`), never inline in the parameter list and not an `interface`. Export it only when another module needs it; type `children` as `Child` from `hono/jsx`.
+
+## Brand
+
+Brand colors are **orange and black**. They live as CSS custom properties at the top of `public/styles.css`; components use the tokens, never literal colors.
+
+- `--brand-black` (`#111111`) and `--brand-orange` (`#f97316`) are the source values; `--color-text`, `--color-on-accent` and `--color-accent-fill` are set from them.
+- `--color-accent-fill` (brand orange) is for solid fills only, today the brand mark, with `--color-on-accent` (black) on top. White on it is only 2.8:1, and as text on light backgrounds it is under 3:1, so neither is used.
+- Orange text on light backgrounds uses `--color-accent-text` (`#c2410c`): 5.18:1 on `--color-surface`, 4.96:1 on `--color-bg`, 4.52:1 on `--color-accent-soft`, all WCAG AA.
+- `--color-accent-soft` (`#ffedd5`) is a pale tint for badge and hero backgrounds; only `--color-accent-text` or text tokens go on it. It can't get darker without also darkening `--color-accent-text`.
+- The site header is a brand-black band with a 3px orange bottom border. `.site-header` redefines the color tokens for a dark surface from the `--color-inverse-*` tokens, with orange text in `--brand-orange` (6.74:1 on black, 5.58:1 on the dark badge tint).
+- Keyboard focus is a 2px `:focus-visible` outline in `--color-accent-text`, so it is at least 4.5:1 wherever it lands.
 
 ## Responsive design
 

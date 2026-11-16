@@ -1,10 +1,18 @@
 /* Layout: header, main and footer regions (see src/views/Layout.tsx).
    Mobile-first: base rules target phones; min-width queries enhance. */
 
-/* Header */
+/* Header: a brand-black band. Redefine the color tokens for a dark
+   surface so everything inside (brand, nav, pills, focus) adapts. */
 .site-header {
+  --color-surface: var(--brand-black);
+  --color-text: var(--color-inverse-text);
+  --color-muted: var(--color-inverse-muted);
+  --color-accent-text: var(--brand-orange);
+  --color-accent-soft: var(--color-inverse-accent-soft);
+  --color-border: var(--color-inverse-border);
   background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-bottom: 3px solid var(--color-accent-fill);
 }
 
 .site-header__inner {
@@ -38,8 +46,8 @@
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 50%;
-  background: var(--color-accent);
-  color: #fff;
+  background: var(--color-accent-fill);
+  color: var(--color-on-accent);
   font-size: 1.25rem;
   line-height: 1;
 }
@@ -101,7 +109,7 @@
   padding: 0.1em 0.5em;
   border-radius: 999px;
   background: var(--color-accent-soft);
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   white-space: nowrap;
 }
 
