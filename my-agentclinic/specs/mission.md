@@ -25,7 +25,7 @@ It's tongue-in-cheek, but it's a real, working web app: agents check in, describ
 |---|---|---|
 | Mary — Engineering | Reliable, popular TypeScript stack | Small, mainstream, well-typed stack; simple architecture; tests as we grow |
 | Susan — Product | Agents, ailments, therapies, appointments | Each is a first-class feature, delivered in its own small phase |
-| Steve — Marketing | Attractive site for modern browsers | Clean, playful visual design using modern CSS; no legacy-browser baggage |
+| Steve — Marketing | Attractive site for modern browsers | Clean, playful visual design using modern CSS; responsive from phone to desktop; no legacy-browser baggage |
 
 ## Principles
 
@@ -33,6 +33,7 @@ It's tongue-in-cheek, but it's a real, working web app: agents check in, describ
 2. **Spec first.** Features are specified before they are implemented, and validated after.
 3. **Simple over clever.** Server-rendered pages, minimal client JavaScript, few dependencies.
 4. **Fun, but real.** The humor lives in the content; the engineering is taken seriously.
+5. **Responsive by default.** Every page works on phones, tablets and desktops. Booth visitors pull it up on their phones.
 
 ## Out of scope (for now)
 
