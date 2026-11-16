@@ -8,13 +8,30 @@
  * values in @media rules.
  */
 :root {
-  --color-bg: #f7f9fb;
+  /*
+   * Brand colors: orange and black (see specs/tech-stack.md).
+   * --color-accent-fill is the brand orange for solid fills only; put
+   * --color-on-accent on top of it. Orange text on light backgrounds
+   * uses --color-accent-text, which keeps WCAG AA contrast.
+   * --color-inverse-* are for brand-black surfaces (the site header).
+   */
+  --brand-orange: #f97316;
+  --brand-black: #111111;
+
+  --color-bg: #fafaf9;
   --color-surface: #ffffff;
-  --color-text: #1d2733;
-  --color-muted: #5b6876;
-  --color-accent: #0f8b8d;
-  --color-accent-soft: #e0f3f2;
-  --color-border: #dde4ea;
+  --color-text: var(--brand-black);
+  --color-muted: #57534e;
+  --color-accent-fill: var(--brand-orange);
+  --color-on-accent: var(--brand-black);
+  --color-accent-text: #c2410c;
+  --color-accent-soft: #ffedd5;
+  --color-border: #e7e5e4;
+
+  --color-inverse-text: #fafaf9;
+  --color-inverse-muted: #a8a29e;
+  --color-inverse-accent-soft: #431407;
+  --color-inverse-border: #44403c;
 
   --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
@@ -81,7 +98,12 @@ p {
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-text);
+  outline-offset: 2px;
 }
 
 .container {
@@ -108,7 +130,7 @@ a {
 }
 
 .hero__eyebrow {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -150,7 +172,7 @@ a {
 }
 
 .card h3 {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .card p {

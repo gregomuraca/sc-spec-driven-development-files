@@ -25,7 +25,7 @@ It's tongue-in-cheek, but it's a real, working web app: agents check in, describ
 |---|---|---|
 | Mary — Engineering | Reliable, popular TypeScript stack | Small, mainstream, well-typed stack; simple architecture; tests as we grow |
 | Susan — Product | Agents, ailments, therapies, appointments | Each is a first-class feature, delivered in its own small phase |
-| Steve — Marketing | Attractive site for modern browsers | Clean, playful visual design using modern CSS; responsive from phone to desktop; no legacy-browser baggage |
+| Steve — Marketing | Attractive site for modern browsers | Clean, playful visual design in the orange-and-black brand, using modern CSS; responsive from phone to desktop; no legacy-browser baggage |
 
 ## Principles
 

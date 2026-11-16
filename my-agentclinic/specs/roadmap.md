@@ -27,6 +27,6 @@ Spec: [`specs/2026-11-16-hello-hono/`](2026-11-16-hello-hono/)
 - Make it the landing page for staff.
 
 ## Phase 4 — Polish
-- Visual design pass (color, typography, empty states).
+- Visual design pass within the orange-and-black brand (`specs/tech-stack.md`): typography, empty states, dark mode.
 - Responsive audit across all pages and breakpoints; fix anything earlier phases missed.
 - Accessibility and modern-browser checks.
