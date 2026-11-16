@@ -19,6 +19,7 @@ Guided by `specs/mission.md` (small shippable slices, simple over clever, fun bu
   - `build` — `tsc`
   - `start` — `node dist/index.js`
 - Server entry that serves on port `3000` (overridable via `PORT` env var) and logs the URL.
+- A minimal AgentClinic home page as the first runnable milestone: `GET /` returns a bare, valid HTML document with the AgentClinic name and tagline, before layout and styling are added.
 - Folder layout per tech-stack conventions: `src/routes/`, `src/views/` (layout + components). `src/data/` is not needed yet.
 - Shared layout component with:
   - `<header>` with the AgentClinic name/logo text and tagline.
@@ -43,6 +44,7 @@ Guided by `specs/mission.md` (small shippable slices, simple over clever, fun bu
 
 | Decision | Choice | Rationale |
 |---|---|---|
+| First milestone | Minimal home page before layout/styling | Proves the server, JSX and build pipeline end to end early; a demo-able checkpoint |
 | Home page content | Welcome hero + placeholder nav | Shows the full app shell now; nav reveals the roadmap to demo viewers |
 | Unbuilt sections in nav | Visible, labeled "coming soon", not links | No dead links; each phase "lights up" a nav item |
 | Styling | One small static CSS file | Layout should look intentional from day one without pre-empting Phase 7 |

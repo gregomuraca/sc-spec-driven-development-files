@@ -17,6 +17,7 @@ The branch can be merged when every check below passes. No automated test framew
 
 ## HTTP checks
 
+- [ ] Minimal home page checkpoint (plan task group 2): after group 2 alone, `curl -i http://localhost:3000/` returns `200` HTML containing "AgentClinic" (no layout or stylesheet yet).
 - [x] `curl -i http://localhost:3000/` returns `200` with `content-type: text/html`.
 - [x] Response starts with `<!DOCTYPE html>` and has `<html lang="en">`, a viewport meta tag and a `<title>`.
 - [x] Response contains `<header>`, `<nav>`, `<main>` and `<footer>` elements.
