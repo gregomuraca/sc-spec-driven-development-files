@@ -7,6 +7,7 @@ Spec-driven project. Product specs live in `specs/` (`mission.md`, `tech-stack.m
 ### Branches
 
 - Never commit directly to `main`. Start each phase or change on its own branch, named in kebab case after the work (e.g. `phase-2-agents`, `add-vitest`, `responsive-design`).
+- Before merging, update `CHANGELOG.md` on the branch with the `/changelog` skill. The user runs it manually; if they ask to merge and the branch's commits aren't in the changelog yet, remind them.
 - Merge into `main` with `git merge --no-ff <branch>` so each change stays a visible unit, then delete the branch.
 - Commit, merge and push only when the user asks or approves.
 
