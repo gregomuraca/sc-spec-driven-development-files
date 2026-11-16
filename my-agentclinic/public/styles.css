@@ -1,0 +1,115 @@
+:root {
+  --color-bg: #f7f9fb;
+  --color-surface: #ffffff;
+  --color-text: #1d2733;
+  --color-muted: #5b6876;
+  --color-accent: #0f8b8d;
+  --color-accent-soft: #e0f3f2;
+  --color-border: #dde4ea;
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+
+  --radius: 0.75rem;
+  --max-width: 64rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0 0 var(--space-3);
+}
+
+p {
+  margin: 0 0 var(--space-3);
+}
+
+a {
+  color: var(--color-accent);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+/* Home page */
+.hero {
+  padding: var(--space-5) var(--space-4);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-surface));
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-5);
+}
+
+.hero__eyebrow {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  margin-bottom: var(--space-2);
+}
+
+.hero__title {
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.hero__lede {
+  font-size: 1.125rem;
+  color: var(--color-muted);
+  max-width: 40rem;
+  margin: 0;
+}
+
+.offerings__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+
+.card h3 {
+  color: var(--color-accent);
+}
+
+.card p {
+  margin: 0;
+  color: var(--color-muted);
+}
