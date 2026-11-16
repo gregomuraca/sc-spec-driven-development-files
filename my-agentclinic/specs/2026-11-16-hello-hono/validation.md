@@ -23,6 +23,7 @@ The branch can be merged when every check below passes. No automated test framew
 - [x] Response contains `<header>`, `<nav>`, `<main>` and `<footer>` elements.
 - [x] Nav contains a link to `/` and the text Agents, Ailments, Therapies, Appointments, each marked "coming soon" and **not** wrapped in `<a>`.
 - [x] `curl -i http://localhost:3000/styles.css` returns `200` with a CSS content type (in both dev and start modes).
+- [x] `curl -i http://localhost:3000/layout.css` returns `200` with a CSS content type, and the page `<head>` links both `/styles.css` and `/layout.css`.
 
 ## Visual check (modern browser)
 
@@ -33,6 +34,7 @@ The branch can be merged when every check below passes. No automated test framew
 ## Housekeeping
 
 - [x] Project structure matches tech-stack conventions (`src/routes/`, `src/views/`, `public/`).
+- [x] `Layout.tsx` composes `Header.tsx`, `Main.tsx` and `Footer.tsx` rather than inlining those regions.
 - [x] `node_modules/` and `dist/` are git-ignored.
 - [x] README explains how to run the app.
 - [x] Nothing out of scope (database, other feature pages, client JS) was added.

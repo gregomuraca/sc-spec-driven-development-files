@@ -5,7 +5,7 @@ import { home } from './routes/home.js';
 
 const app = new Hono();
 
-app.use('/styles.css', serveStatic({ root: './public' }));
+app.use('/*.css', serveStatic({ root: './public' }));
 app.route('/', home);
 
 const port = Number(process.env.PORT) || 3000;

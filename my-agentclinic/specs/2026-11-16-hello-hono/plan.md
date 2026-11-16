@@ -24,9 +24,13 @@ The first "it's alive" milestone: a running server that answers `GET /` with a b
 ## 3. Routes & layout
 
 3.1 Move the home handler into `src/routes/home.tsx` as a Hono sub-app and mount it in `index.tsx` with `app.route('/', home)`. Use `.js` extensions in relative imports (NodeNext).
-3.2 Create `src/views/Layout.tsx`: accepts `title` and `children`; renders doctype, `<html lang="en">`, head (charset, viewport, `<title>`, stylesheet link), header, nav, main, footer.
-3.3 Create `src/views/Nav.tsx`: Home as a link (marked current with `aria-current="page"`); Agents, Ailments, Therapies, Appointments as non-link items labeled "coming soon".
-3.4 Render the minimal home content inside `Layout` from the `GET /` route.
+3.2 Create the three layout subcomponents in `src/views/`:
+  - `Header.tsx` — AgentClinic brand, tagline and `Nav`.
+  - `Main.tsx` — `<main>` wrapper for page content (`children`).
+  - `Footer.tsx` — playful line and the current year.
+3.3 Create `src/views/Layout.tsx` (the main layout component): accepts `title`, `current` and `children`; renders doctype, `<html lang="en">`, head (charset, viewport, `<title>`, stylesheet links), then composes `<Header />`, `<Main>{children}</Main>` and `<Footer />`.
+3.4 Create `src/views/Nav.tsx`: Home as a link (marked current with `aria-current="page"`); Agents, Ailments, Therapies, Appointments as non-link items labeled "coming soon".
+3.5 Render the minimal home content inside `Layout` from the `GET /` route.
 
 ## 4. Home view
 
@@ -35,7 +39,8 @@ The first "it's alive" milestone: a running server that answers `GET /` with a b
 
 ## 5. Static CSS & docs
 
-5.1 Create `public/styles.css`: CSS custom properties for colors/spacing/fonts, base typography, header/nav/footer layout with flex or grid, styling for "coming soon" items.
-5.2 Serve it with `serveStatic({ root: './public' })` for `/styles.css`; confirm it works from both `npm run dev` and `npm start` (paths resolved from project root).
-5.3 Add a "Running the app" section to `README.md` (`npm install`, `npm run dev`, `npm run build && npm start`, `PORT` override).
-5.4 Walk through `validation.md` and tick every item.
+5.1 Create `public/styles.css`: CSS custom properties for colors/spacing/fonts, base typography, shared `.container`, and home page styles (hero, cards).
+5.2 Create `public/layout.css`: styles for the layout subcomponents only — header/brand, nav (including "coming soon" items), main and footer.
+5.3 Link both from `Layout.tsx` (`/styles.css` first, then `/layout.css`) and serve them with `app.use('/*.css', serveStatic({ root: './public' }))`; confirm both load from `npm run dev` and `npm start` (paths resolved from project root).
+5.4 Add a "Running the app" section to `README.md` (`npm install`, `npm run dev`, `npm run build && npm start`, `PORT` override).
+5.5 Walk through `validation.md` and tick every item.

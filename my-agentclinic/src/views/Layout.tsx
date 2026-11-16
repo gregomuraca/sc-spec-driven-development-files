@@ -1,6 +1,9 @@
 import type { Child } from 'hono/jsx';
 import { raw } from 'hono/html';
-import { Nav, type NavKey } from './Nav.js';
+import type { NavKey } from './Nav.js';
+import { Header } from './Header.js';
+import { Main } from './Main.js';
+import { Footer } from './Footer.js';
 
 type LayoutProps = {
   title: string;
@@ -17,27 +20,12 @@ export const Layout = ({ title, current, children }: LayoutProps) => (
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{title}</title>
         <link rel="stylesheet" href="/styles.css" />
+        <link rel="stylesheet" href="/layout.css" />
       </head>
       <body>
-        <header class="site-header">
-          <div class="container site-header__inner">
-            <a href="/" class="brand">
-              <span class="brand__mark" aria-hidden="true">+</span>
-              <span class="brand__name">AgentClinic</span>
-            </a>
-            <p class="brand__tagline">Relief for hardworking AI agents</p>
-          </div>
-          <Nav current={current} />
-        </header>
-        <main class="container">{children}</main>
-        <footer class="site-footer">
-          <div class="container">
-            <p>
-              © {new Date().getFullYear()} AgentClinic · No context windows were harmed in the
-              making of this site.
-            </p>
-          </div>
-        </footer>
+        <Header current={current} />
+        <Main>{children}</Main>
+        <Footer />
       </body>
     </html>
   </>
