@@ -34,7 +34,7 @@ The branch can be merged when every check below passes. No automated test framew
 ## Housekeeping
 
 - [x] Project structure matches tech-stack conventions (`src/routes/`, `src/views/`, `public/`).
-- [x] `Layout.tsx` composes `Header.tsx`, `Main.tsx` and `Footer.tsx` rather than inlining those regions.
+- [x] `Header`, `Main` and `Footer` each live in their own file (`src/views/Header.tsx`, `Main.tsx`, `Footer.tsx`), and `Layout.tsx` imports and composes them rather than inlining those regions.
 - [x] `node_modules/` and `dist/` are git-ignored.
 - [x] README explains how to run the app.
 - [x] Nothing out of scope (database, other feature pages, client JS) was added.

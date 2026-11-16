@@ -21,7 +21,7 @@ Guided by `specs/mission.md` (small shippable slices, simple over clever, fun bu
 - Server entry that serves on port `3000` (overridable via `PORT` env var) and logs the URL.
 - A minimal AgentClinic home page as the first runnable milestone: `GET /` returns a bare, valid HTML document with the AgentClinic name and tagline, before layout and styling are added.
 - Folder layout per tech-stack conventions: `src/routes/`, `src/views/` (layout + components). `src/data/` is not needed yet.
-- Main layout component (`Layout`) composed of three subcomponents — `Header`, `Main`, `Footer` — with:
+- Main layout component (`Layout`, in `src/views/Layout.tsx`) composed of three subcomponents, each in its own file: `Header` (`src/views/Header.tsx`), `Main` (`src/views/Main.tsx`) and `Footer` (`src/views/Footer.tsx`). `Layout` imports them and does not inline those regions. Together they render:
   - `<header>` with the AgentClinic name/logo text and tagline.
   - `<nav>` with **Home** (linked) and **Agents**, **Ailments**, **Therapies**, **Appointments** shown as placeholders marked "coming soon" — not links until their phase ships.
   - `<main>` slot for page content.
@@ -47,7 +47,7 @@ Guided by `specs/mission.md` (small shippable slices, simple over clever, fun bu
 | First milestone | Minimal home page before layout/styling | Proves the server, JSX and build pipeline end to end early; a demo-able checkpoint |
 | Home page content | Welcome hero + placeholder nav | Shows the full app shell now; nav reveals the roadmap to demo viewers |
 | Unbuilt sections in nav | Visible, labeled "coming soon", not links | No dead links; each phase "lights up" a nav item |
-| Layout structure | `Layout` composes `Header`, `Main`, `Footer` subcomponents | Each region is small and reusable; later phases change one without touching the others |
+| Layout structure | `Layout` composes `Header`, `Main`, `Footer` subcomponents, one file per component | Each region is small and reusable; later phases change one without touching the others |
 | Styling | Two small static CSS files (base + layout) | Layout should look intentional from day one without pre-empting Phase 7 |
 | Module system | ESM with `NodeNext` | Matches tech-stack conventions; required for clean `tsx`/`node` parity |
 | Port | `3000`, `PORT` env override | Conventional default; easy to change at a booth |

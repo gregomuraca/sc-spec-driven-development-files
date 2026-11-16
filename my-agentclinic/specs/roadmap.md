@@ -2,7 +2,10 @@
 
 High-level implementation order in very small phases. Each phase is roughly one sitting, ends with a working app, and gets its own feature spec before implementation.
 
-## Phase 1 — Hello Hono
+## Phase 1 — Hello Hono ✅ Complete
+
+Spec: [`specs/2026-11-16-hello-hono/`](2026-11-16-hello-hono/)
+
 - Install Hono, `@hono/node-server`, `tsx`; update `tsconfig.json` for ESM + JSX.
 - Single home page rendered with a shared layout (header, nav, footer).
 - `npm run dev` and `npm start` scripts.

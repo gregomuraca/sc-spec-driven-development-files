@@ -24,7 +24,7 @@ The first "it's alive" milestone: a running server that answers `GET /` with a b
 ## 3. Routes & layout
 
 3.1 Move the home handler into `src/routes/home.tsx` as a Hono sub-app and mount it in `index.tsx` with `app.route('/', home)`. Use `.js` extensions in relative imports (NodeNext).
-3.2 Create the three layout subcomponents in `src/views/`:
+3.2 Create the three layout subcomponents in `src/views/`, each in its own file exporting one component:
   - `Header.tsx` — AgentClinic brand, tagline and `Nav`.
   - `Main.tsx` — `<main>` wrapper for page content (`children`).
   - `Footer.tsx` — playful line and the current year.
