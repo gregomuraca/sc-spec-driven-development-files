@@ -12,7 +12,7 @@ Server-side TypeScript with **Hono**, rendering HTML with **Hono JSX**. Minimal 
 | Runtime | Node.js (v18+) | Already required by the course; ubiquitous |
 | Web framework | [Hono](https://hono.dev) + `@hono/node-server` | Popular, lightweight, TypeScript-first, fast to demo |
 | Views | Hono JSX (server-side rendering) | Components without a client framework or build-heavy frontend |
-| Styling | Plain modern CSS (custom properties, grid/flex, `:has`, container queries) | Steve's "attractive, modern browser" goal without a CSS framework |
+| Styling | Plain modern CSS (custom properties, grid/flex, `:has`, container queries), responsive and mobile-first | Steve's "attractive, modern browser" goal without a CSS framework; works on any screen size |
 | Client interactivity | Progressive enhancement; small inline scripts only where needed | Keeps the app simple and reliable |
 | Database | SQLite via [`better-sqlite3`](https://github.com/WiseLibs/better-sqlite3) | Zero-config, file-based, no server to run; synchronous API keeps code simple; ideal for demos |
 | Dev runner | `tsx` (watch mode) | Run TypeScript directly with fast reloads |
@@ -27,6 +27,19 @@ Server-side TypeScript with **Hono**, rendering HTML with **Hono JSX**. Minimal 
 - Use plain SQL with prepared statements; no ORM.
 - Pages are server-rendered; forms use standard POST + redirect.
 - Keep dependencies few and well-known.
+
+## Responsive design
+
+Every page must work from a 320px-wide phone up to a wide desktop.
+
+- **Mobile-first.** Base styles target phones; `@media (min-width: …)` rules enhance for larger screens. No `max-width` media queries.
+- **Breakpoints.** `40rem` (md, 640px) and `64rem` (lg, 1024px) only, documented at the top of `public/styles.css`. Prefer intrinsic layouts (`flex-wrap`, `grid` with `auto-fit`/`minmax(min(100%, …), 1fr)`, `clamp()`) over breakpoints; use container queries for components that sit in differently sized slots.
+- **Viewport.** `<meta name="viewport" content="width=device-width, initial-scale=1">`; never disable zoom.
+- **No horizontal scroll** at 320px. No fixed widths wider than 320px; media gets `max-width: 100%`; long words wrap.
+- **Fluid sizing.** Headings and lead text scale with `clamp()`; spacing tokens (e.g. `--gutter`) grow at the md breakpoint.
+- **Touch.** Interactive elements are at least `--tap-target` (2.75rem / 44px) tall.
+- **Tables and forms** (from Phase 2): tables sit in a horizontally scrollable wrapper or reflow into stacked cards on phones; form fields are full width on phones.
+- **Validation.** Each phase's `validation.md` includes visual checks at ~375px, ~768px and ~1280px, and `tests/responsive.test.ts` enforces the rules above that can be checked automatically.
 
 ## Testing and validation
 

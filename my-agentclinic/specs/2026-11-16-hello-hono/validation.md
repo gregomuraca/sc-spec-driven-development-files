@@ -13,6 +13,7 @@ The branch can be merged when every check below passes. The HTTP checks are auto
 - [x] `npm test` passes (route, static CSS and view component suites).
 - [x] `npm run typecheck` passes for the test files.
 - [x] Tests import `app` from `src/app.tsx` and never start a server.
+- [x] `tests/responsive.test.ts` passes: zoomable viewport, mobile-first `min-width` queries at the shared breakpoints only, no fixed widths over 320px, media capped at 100%, nav touch targets.
 - [x] Breaking a checked behavior (e.g. turning a "coming soon" item into a link) makes `npm test` fail.
 
 ## Run
@@ -37,7 +38,13 @@ Automated in `tests/routes/home.test.ts` and `tests/static.test.ts`, except the 
 ## Visual check (modern browser)
 
 - [ ] Home page shows the header, welcome hero, nav and footer, styled by the stylesheet (not browser defaults).
-- [ ] Layout holds up at phone width (~375px) with no horizontal scroll.
+
+## Responsive check (browser dev tools device mode)
+
+- [ ] ~320px and ~375px (phone): no horizontal scroll; nav items wrap and are easy to tap; hero and cards are single-column and readable.
+- [ ] ~768px (tablet): offering cards sit three across; spacing grows.
+- [ ] ~1280px (desktop): content is centered at max width; cards sit in one row of four.
+- [ ] Zooming to 200% does not hide or clip content.
 - [ ] Tone matches the mission: playful copy, serious engineering.
 
 ## Housekeeping

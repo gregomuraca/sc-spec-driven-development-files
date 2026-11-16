@@ -40,8 +40,8 @@ The first "it's alive" milestone: a running server that answers `GET /` with a b
 
 ## 5. Static CSS & docs
 
-5.1 Create `public/styles.css`: CSS custom properties for colors/spacing/fonts, base typography, shared `.container`, and home page styles (hero, cards).
-5.2 Create `public/layout.css`: styles for the layout subcomponents only — header/brand, nav (including "coming soon" items), main and footer.
+5.1 Create `public/styles.css`, mobile-first: breakpoint notes (`40rem`, `64rem`), CSS custom properties for colors/spacing/fonts plus `--gutter` and `--tap-target`, base typography, `img/svg/video { max-width: 100% }`, `overflow-wrap`, shared `.container`, and home page styles (hero, cards) that grow at `40rem`.
+5.2 Create `public/layout.css`, mobile-first: styles for the layout subcomponents only — header/brand, nav (wrapping items, 44px touch targets, "coming soon" items), main and footer, enhanced at `40rem`.
 5.3 Link both from `Layout.tsx` (`/styles.css` first, then `/layout.css`) and serve them with `app.use('/*.css', serveStatic({ root: './public' }))` in `src/app.tsx`; confirm both load from `npm run dev` and `npm start` (paths resolved from project root).
 5.4 Add a "Running the app" section to `README.md` (`npm install`, `npm run dev`, `npm run build && npm start`, `PORT` override, `npm test`).
 
@@ -49,6 +49,7 @@ The first "it's alive" milestone: a running server that answers `GET /` with a b
 
 6.1 `tests/routes/home.test.ts`: `GET /` returns `200` HTML with doctype, `lang`, viewport and `<title>`; has header/nav/main/footer; nav links Home and shows the four unbuilt sections as "coming soon" without links; head links both stylesheets.
 6.2 `tests/static.test.ts`: `/styles.css` and `/layout.css` return `200` with a CSS content type.
-6.3 `tests/views/components.test.tsx` (with `tests/views/render.ts` helper): unit tests for `Nav`, `Header`, `Main`, `Footer`, `Layout` (document shell, stylesheet order, region order) and `HomePage` (hero, four offering cards).
-6.4 `npm test` and `npm run typecheck` pass.
-6.5 Walk through `validation.md` and tick every item.
+6.3 `tests/responsive.test.ts`: viewport meta allows zoom; stylesheets use only `min-width` queries at the shared breakpoints; no fixed widths over 320px; media capped at `100%`; nav touch targets.
+6.4 `tests/views/components.test.tsx` (with `tests/views/render.ts` helper): unit tests for `Nav`, `Header`, `Main`, `Footer`, `Layout` (document shell, stylesheet order, region order) and `HomePage` (hero, four offering cards).
+6.5 `npm test` and `npm run typecheck` pass.
+6.6 Walk through `validation.md` and tick every item.
