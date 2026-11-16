@@ -1,12 +1,5 @@
-import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
-import { serveStatic } from '@hono/node-server/serve-static';
-import { home } from './routes/home.js';
-
-const app = new Hono();
-
-app.use('/*.css', serveStatic({ root: './public' }));
-app.route('/', home);
+import { app } from './app.js';
 
 const port = Number(process.env.PORT) || 3000;
 

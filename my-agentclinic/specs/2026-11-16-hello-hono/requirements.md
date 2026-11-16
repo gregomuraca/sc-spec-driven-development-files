@@ -11,14 +11,15 @@ Guided by `specs/mission.md` (small shippable slices, simple over clever, fun bu
 ### In scope
 
 - Install runtime dependencies: `hono`, `@hono/node-server`.
-- Install dev dependencies: `tsx`, `@types/node`.
+- Install dev dependencies: `tsx`, `@types/node`, `vitest`.
 - Switch the project to ES modules (`"type": "module"` in `package.json`).
 - Update `tsconfig.json`: modern target (ES2022), `module`/`moduleResolution` `NodeNext`, `jsx: "react-jsx"`, `jsxImportSource: "hono/jsx"`, `outDir: "dist"`, `rootDir: "src"`, strict mode kept.
 - npm scripts:
   - `dev` — `tsx watch src/index.tsx`
   - `build` — `tsc`
   - `start` — `node dist/index.js`
-- Server entry that serves on port `3000` (overridable via `PORT` env var) and logs the URL.
+  - `test` — `vitest run`; `test:watch` — `vitest`; `typecheck` — `tsc -p tests`
+- Hono app built and exported from `src/app.tsx`; server entry `src/index.tsx` serves it on port `3000` (overridable via `PORT` env var) and logs the URL.
 - A minimal AgentClinic home page as the first runnable milestone: `GET /` returns a bare, valid HTML document with the AgentClinic name and tagline, before layout and styling are added.
 - Folder layout per tech-stack conventions: `src/routes/`, `src/views/` (layout + components). `src/data/` is not needed yet.
 - Main layout component (`Layout`, in `src/views/Layout.tsx`) composed of three subcomponents, each in its own file: `Header` (`src/views/Header.tsx`), `Main` (`src/views/Main.tsx`) and `Footer` (`src/views/Footer.tsx`). `Layout` imports them and does not inline those regions. Together they render:
@@ -29,14 +30,14 @@ Guided by `specs/mission.md` (small shippable slices, simple over clever, fun bu
   - Proper document basics: `<!doctype html>`, `lang="en"`, charset, viewport, `<title>` per page.
 - Home page (`GET /`): welcome hero with the clinic tagline and a short description of what AgentClinic offers.
 - Static stylesheets using CSS custom properties, linked from the layout: `public/styles.css` (tokens, base, page styles) and `public/layout.css` (header/nav/main/footer). Enough to look tidy, not the full Phase 7 design pass.
-- README note on how to run the app (`npm install`, `npm run dev`, `npm run build && npm start`).
+- Vitest test suites in `tests/`: route tests for `GET /` and the stylesheets (via `app.request()`), and view tests for `Nav`, `Header`, `Main`, `Footer`, `Layout` and `HomePage`.
+- README note on how to run the app (`npm install`, `npm run dev`, `npm run build && npm start`) and the tests (`npm test`).
 
 ### Out of scope
 
 - Database / SQLite (Phase 2).
 - Agents, ailments, therapies, appointments pages (Phases 2–5).
 - Custom 404 page (Hono's default is fine for now).
-- Automated tests and a test framework (still deferred).
 - Full visual design, dark mode, accessibility audit (Phase 7).
 - Client-side JavaScript.
 
@@ -52,7 +53,8 @@ Guided by `specs/mission.md` (small shippable slices, simple over clever, fun bu
 | Module system | ESM with `NodeNext` | Matches tech-stack conventions; required for clean `tsx`/`node` parity |
 | Port | `3000`, `PORT` env override | Conventional default; easy to change at a booth |
 | Static files | `serveStatic` from `@hono/node-server/serve-static` | First-party, no extra dependency |
-| Tests | None this phase | Test framework is a deferred decision; validation is manual + build |
+| Tests | Vitest; route tests via `app.request()` plus view component tests | Chosen in `specs/tech-stack.md`; automates the HTTP checks so validation is repeatable |
+| App vs server | `src/app.tsx` exports the app, `src/index.tsx` calls `serve()` | Tests import the app without starting a server or binding a port |
 
 ## Open questions
 
