@@ -17,6 +17,7 @@ Server-side TypeScript with **Hono**, rendering HTML with **Hono JSX**. Minimal 
 | Database | SQLite via [`better-sqlite3`](https://github.com/WiseLibs/better-sqlite3) | Zero-config, file-based, no server to run; synchronous API keeps code simple; ideal for demos |
 | Dev runner | `tsx` (watch mode) | Run TypeScript directly with fast reloads |
 | Build | `tsc` | Already in the scaffold |
+| Testing | [Vitest](https://vitest.dev) | Fast, TypeScript- and ESM-native, no extra config; runs the same JSX settings as `tsc` |
 
 ## Conventions
 
@@ -27,6 +28,12 @@ Server-side TypeScript with **Hono**, rendering HTML with **Hono JSX**. Minimal 
 - Pages are server-rendered; forms use standard POST + redirect.
 - Keep dependencies few and well-known.
 
-## Deferred decisions
+## Testing and validation
 
-- Test framework (to be chosen when tests are introduced).
+- Vitest tests are the automated validation for each phase: a phase's validation checklist is not complete until `npm test` passes.
+- Run with `npm test` (single run, `vitest run`); use `npm run test:watch` while developing and `npm run typecheck` to type-check the tests.
+- Tests live in `tests/`, mirroring `src/` (e.g. `tests/routes/home.test.ts`, `tests/views/components.test.tsx`), named `*.test.ts` / `*.test.tsx`. Keeping them out of `src/` keeps them out of the `tsc` build; `tests/tsconfig.json` type-checks them.
+- `vitest.config.ts` compiles test JSX with `hono/jsx`, matching `tsconfig.json`.
+- The Hono app is built in `src/app.tsx` and exported; `src/index.tsx` only starts the server. Tests import `app` and never open a port.
+- Test routes through `app.request()` and assert on status, headers and rendered HTML. Test view components by rendering them to a string (`tests/views/render.ts`).
+- Database tests use an in-memory SQLite database (`:memory:`), never `data/agentclinic.db`.

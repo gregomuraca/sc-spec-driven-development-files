@@ -1,12 +1,19 @@
 # Phase 1 — Hello Hono: Validation
 
-The branch can be merged when every check below passes. No automated test framework yet (deferred per `specs/tech-stack.md`); checks are build + manual.
+The branch can be merged when every check below passes. The HTTP checks are automated with Vitest (see `specs/tech-stack.md`); `npm test` covers them. Visual checks stay manual.
 
 ## Build
 
 - [x] `npm install` completes from a clean checkout with no errors.
 - [x] `npm run build` succeeds with `strict` TypeScript and produces `dist/index.js`.
 - [x] No `any` escapes or `@ts-ignore` added to get the build passing.
+
+## Tests
+
+- [x] `npm test` passes (route, static CSS and view component suites).
+- [x] `npm run typecheck` passes for the test files.
+- [x] Tests import `app` from `src/app.tsx` and never start a server.
+- [x] Breaking a checked behavior (e.g. turning a "coming soon" item into a link) makes `npm test` fail.
 
 ## Run
 
@@ -16,6 +23,8 @@ The branch can be merged when every check below passes. No automated test framew
 - [x] `PORT=4000 npm start` serves on port 4000.
 
 ## HTTP checks
+
+Automated in `tests/routes/home.test.ts` and `tests/static.test.ts`, except the group 2 checkpoint, which is a manual `curl` against the running server.
 
 - [ ] Minimal home page checkpoint (plan task group 2): after group 2 alone, `curl -i http://localhost:3000/` returns `200` HTML containing "AgentClinic" (no layout or stylesheet yet).
 - [x] `curl -i http://localhost:3000/` returns `200` with `content-type: text/html`.
@@ -33,7 +42,7 @@ The branch can be merged when every check below passes. No automated test framew
 
 ## Housekeeping
 
-- [x] Project structure matches tech-stack conventions (`src/routes/`, `src/views/`, `public/`).
+- [x] Project structure matches tech-stack conventions (`src/routes/`, `src/views/`, `public/`, `tests/`).
 - [x] `Header`, `Main` and `Footer` each live in their own file (`src/views/Header.tsx`, `Main.tsx`, `Footer.tsx`), and `Layout.tsx` imports and composes them rather than inlining those regions.
 - [x] `node_modules/` and `dist/` are git-ignored.
 - [x] README explains how to run the app.

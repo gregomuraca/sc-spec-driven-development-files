@@ -9,6 +9,7 @@ Spec: [`specs/2026-11-16-hello-hono/`](2026-11-16-hello-hono/)
 - Install Hono, `@hono/node-server`, `tsx`; update `tsconfig.json` for ESM + JSX.
 - Single home page rendered with a shared layout (header, nav, footer).
 - `npm run dev` and `npm start` scripts.
+- Vitest set up (`npm test`), with route and view tests for the home page.
 
 ## Phase 2 — Agents
 - Set up SQLite (`better-sqlite3`): schema creation and seeding on startup.
