@@ -1,8 +1,12 @@
 export type NavKey = 'home';
 
+type NavProps = {
+  current: NavKey;
+};
+
 const comingSoon = ['Agents', 'Ailments', 'Therapies', 'Appointments'];
 
-export const Nav = ({ current }: { current: NavKey }) => (
+export const Nav = ({ current }: NavProps) => (
   <nav class="site-nav" aria-label="Main">
     <ul class="container site-nav__list">
       <li>

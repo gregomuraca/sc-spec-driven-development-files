@@ -1,6 +1,10 @@
 import { Nav, type NavKey } from './Nav.js';
 
-export const Header = ({ current }: { current: NavKey }) => (
+type HeaderProps = {
+  current: NavKey;
+};
+
+export const Header = ({ current }: HeaderProps) => (
   <header class="site-header">
     <div class="container site-header__inner">
       <a href="/" class="brand">

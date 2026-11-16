@@ -27,6 +27,7 @@ Server-side TypeScript with **Hono**, rendering HTML with **Hono JSX**. Minimal 
 - Use plain SQL with prepared statements; no ORM.
 - Pages are server-rendered; forms use standard POST + redirect.
 - Keep dependencies few and well-known.
+- Component props are a named `type <Component>Props = { … }` declared directly above the component (e.g. `HeaderProps`), never inline in the parameter list and not an `interface`. Export it only when another module needs it; type `children` as `Child` from `hono/jsx`.
 
 ## Responsive design
 
