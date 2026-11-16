@@ -29,7 +29,7 @@ Guided by `specs/mission.md` (small shippable slices, simple over clever, fun bu
   - `<footer>` with a short playful line and the year.
   - Proper document basics: `<!doctype html>`, `lang="en"`, charset, viewport, `<title>` per page.
 - Home page (`GET /`): welcome hero with the clinic tagline and a short description of what AgentClinic offers.
-- Static stylesheets using CSS custom properties, linked from the layout: `public/styles.css` (tokens, breakpoints, base, page styles) and `public/layout.css` (header/nav/main/footer). Enough to look tidy, not the full Phase 7 design pass.
+- Static stylesheets using CSS custom properties, linked from the layout: `public/styles.css` (tokens, breakpoints, base, page styles) and `public/layout.css` (header/nav/main/footer). Enough to look tidy, not the full Phase 4 design pass.
 - Responsive, mobile-first layout per `specs/tech-stack.md`: works from 320px to desktop with no horizontal scroll; header, nav, hero and offering cards adapt at the `40rem` breakpoint; nav items meet the 44px touch target; viewport meta allows zoom.
 - Vitest test suites in `tests/`: route tests for `GET /` and the stylesheets (via `app.request()`), view tests for `Nav`, `Header`, `Main`, `Footer`, `Layout` and `HomePage`, and responsive rules in `tests/responsive.test.ts`.
 - README note on how to run the app (`npm install`, `npm run dev`, `npm run build && npm start`) and the tests (`npm test`).
@@ -37,9 +37,9 @@ Guided by `specs/mission.md` (small shippable slices, simple over clever, fun bu
 ### Out of scope
 
 - Database / SQLite (Phase 2).
-- Agents, ailments, therapies, appointments pages (Phases 2–5).
+- Agents, ailments, therapies, appointments pages (Phase 2).
 - Custom 404 page (Hono's default is fine for now).
-- Full visual design, dark mode, accessibility audit, cross-page responsive audit (Phase 7).
+- Full visual design, dark mode, accessibility audit, cross-page responsive audit (Phase 4).
 - Client-side JavaScript.
 
 ## Decisions
@@ -50,7 +50,7 @@ Guided by `specs/mission.md` (small shippable slices, simple over clever, fun bu
 | Home page content | Welcome hero + placeholder nav | Shows the full app shell now; nav reveals the roadmap to demo viewers |
 | Unbuilt sections in nav | Visible, labeled "coming soon", not links | No dead links; each phase "lights up" a nav item |
 | Layout structure | `Layout` composes `Header`, `Main`, `Footer` subcomponents, one file per component | Each region is small and reusable; later phases change one without touching the others |
-| Styling | Two small static CSS files (base + layout) | Layout should look intentional from day one without pre-empting Phase 7 |
+| Styling | Two small static CSS files (base + layout) | Layout should look intentional from day one without pre-empting Phase 4 |
 | Responsive approach | Mobile-first, `min-width` breakpoints at `40rem`/`64rem`, intrinsic grids and `clamp()` | Booth visitors use phones; establishing the pattern in Phase 1 means later pages inherit it |
 | Nav on phones | Items wrap onto extra rows; no hamburger menu | Five short items fit in a few rows; no client JS needed |
 | Module system | ESM with `NodeNext` | Matches tech-stack conventions; required for clean `tsx`/`node` parity |
