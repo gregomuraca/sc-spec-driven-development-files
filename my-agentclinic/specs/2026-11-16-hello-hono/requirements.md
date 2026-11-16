@@ -48,7 +48,7 @@ Guided by `specs/mission.md` (small shippable slices, simple over clever, fun bu
 |---|---|---|
 | First milestone | Minimal home page before layout/styling | Proves the server, JSX and build pipeline end to end early; a demo-able checkpoint |
 | Home page content | Welcome hero + placeholder nav | Shows the full app shell now; nav reveals the roadmap to demo viewers |
-| Unbuilt sections in nav | Visible, labeled "coming soon", not links | No dead links; each phase "lights up" a nav item |
+| Unbuilt sections in nav | Visible, labeled "coming soon", not links | No dead links; each feature "lights up" its nav item when its page ships |
 | Layout structure | `Layout` composes `Header`, `Main`, `Footer` subcomponents, one file per component | Each region is small and reusable; later phases change one without touching the others |
 | Styling | Two small static CSS files (base + layout) | Layout should look intentional from day one without pre-empting Phase 4 |
 | Responsive approach | Mobile-first, `min-width` breakpoints at `40rem`/`64rem`, intrinsic grids and `clamp()` | Booth visitors use phones; establishing the pattern in Phase 1 means later pages inherit it |

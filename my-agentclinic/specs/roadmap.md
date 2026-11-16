@@ -14,11 +14,23 @@ Spec: [`specs/2026-11-16-hello-hono/`](2026-11-16-hello-hono/)
 - Vitest set up (`npm test`), with route and view tests for the home page.
 
 ## Phase 2 — Agents, Ailments, Therapies & Appointments
+
+One feature spec, built in four milestones. Each milestone ends with a working, demoable app and turns its nav item from "coming soon" into a link.
+
+### 2a — Agents
 - Set up SQLite (`better-sqlite3`): schema creation and seeding on startup.
 - Agent table with seed data.
+- Agents list page (reflows for phones) and agent detail page.
+
+### 2b — Ailments
 - Ailment catalog with seed data, linked to agents.
+- Ailments list page; show an agent's ailments on the agent detail page.
+
+### 2c — Therapies
 - Therapy catalog with seed data, mapped to the ailments they treat.
-- Agents list page (reflows for phones) and agent detail page showing the agent's ailments and recommended therapies.
+- Therapies list page; show recommended therapies for an agent's ailments on the agent detail page.
+
+### 2d — Appointments
 - Book an appointment (agent + therapy + time) via a form that is usable on phones.
 - List upcoming appointments.
 
